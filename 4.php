@@ -18,20 +18,23 @@
     <?php
     if (isset($_POST['tabungan'])) {
         $tabungan = (float)$_POST['tabungan'];
-        $bunga = 0;
+        $bunga_persen = 0;
 
         if ($tabungan < 1000000) {
-            $bunga = 0.0015 * $tabungan;
+            $bunga_persen = 0.15;
         } elseif ($tabungan == 1000000) {
-            $bunga = 0.0056 * $tabungan;
+            $bunga_persen = 0.56;
         } elseif ($tabungan >= 5000000 && $tabungan <= 10000000) {
-            $bunga = 0.12 * $tabungan;
+            $bunga_persen = 12;
         } elseif ($tabungan > 10000000) {
-            $bunga = 0.2 * $tabungan;
+            $bunga_persen = 20;
         }
 
+        $bunga = ($bunga_persen / 100) * $tabungan;
+
         echo "<p>Jumlah Tabungan: Rp " . number_format($tabungan, 2, ',', '.') . "</p>";
-        echo "<p>Bunga yang Diperoleh: Rp " . number_format($bunga, 2, ',', '.') . "</p>";
+        echo "<p>Bunga yang Diperoleh: $bunga_persen%</p>";
+        echo "<p>Nilai Bunga dalam Rupiah: Rp " . number_format($bunga, 2, ',', '.') . "</p>";
     }
     ?>
 </body>
