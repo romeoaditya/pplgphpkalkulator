@@ -10,7 +10,7 @@
 <body>
     <h2>Masukan nomer (0-6) untuk Menampilkan Hari</h2>
     <form method="POST">
-        <label for="angka">Angka (0-6): </label>
+        <label for="angka">Nomer (0-6): </label>
         <input type="number" id="angka" name="angka" min="0" max="6" required>
         <button type="submit">Tampilkan Hari</button>
     </form>
